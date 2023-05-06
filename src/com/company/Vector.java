@@ -39,7 +39,7 @@ public class Vector {
     public static Vector minus(Vector v1,Vector v2){
         return new Vector(v1.x-v2.x,v1.y-v2.y,v1.z-v2.z);
     }
-    public void multK(double k){
+    public void multiK(double k){
         x*=k;
         y*=k;
         z*=k;
@@ -47,6 +47,6 @@ public class Vector {
     public void normalization(){
         double r=x*x+y*y+z*z;
         r=MyMath.invSqrt(r);
-        multK(r);
+        multiK(r);
     }
 }

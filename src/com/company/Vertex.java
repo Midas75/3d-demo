@@ -1,10 +1,8 @@
 package com.company;
 
-import javax.swing.*;
-
 public class Vertex {
     public int textureOffsetX, textureOffsetY, color;
-    public Vector vector;
+    public final Vector vector;
     public Vertex(Vector v){
         vector=v;
         textureOffsetX=0;

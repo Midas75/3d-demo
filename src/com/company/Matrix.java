@@ -4,7 +4,7 @@ package com.company;
 import static java.lang.Math.*;
 
 public class Matrix {
-    public double[][] value;
+    public final double[][] value;
     public Matrix(int r,int c){
         value=new double[r][c];
     }
@@ -17,7 +17,7 @@ public class Matrix {
     public int getColumn(){
         return value[0].length;
     }
-    public static Matrix matrixMult(Matrix m1,Matrix m2){
+    public static Matrix matrixMulti(Matrix m1, Matrix m2){
         int r1=m1.getRow(),r2=m2.getRow(),c1=m1.getColumn(),c2=m2.getColumn();
         if(c1!=r2) return null;
         Matrix res=new Matrix(r1,c2);
@@ -69,7 +69,7 @@ public class Matrix {
 
         double[][] temp = {{p.x}, {p.y}, {p.z}, {1}};
         Matrix tempmatrix = new Matrix(temp);
-        tempmatrix=Matrix.matrixMult(turnmatrix, tempmatrix);
+        tempmatrix=Matrix.matrixMulti(turnmatrix, tempmatrix);
         p.x = tempmatrix.value[0][0];
         p.y = tempmatrix.value[1][0];
         p.z = tempmatrix.value[2][0];
@@ -100,7 +100,7 @@ public class Matrix {
 
         m2.value[3][3]=1;
 
-        return matrixMult(m2,m1);
+        return matrixMulti(m2,m1);
     }
 
     public static Matrix getProjectMatrix(Camera camera){
@@ -124,14 +124,14 @@ public class Matrix {
                 txyz.value[2][0]=p[j].z;
                 txyz.value[3][0]=1;
 
-                txyz=matrixMult(mc,txyz);
-                txyz=matrixMult(mp,txyz);
+                txyz= matrixMulti(mc,txyz);
+                txyz= matrixMulti(mp,txyz);
 
                 txyz.value[0][0]*=camera.rate/txyz.value[3][0]*buffer.width;
                 txyz.value[1][0]*=camera.rate/txyz.value[3][0]*buffer.height;
                 txyz.value[2][0]*=camera.rate/txyz.value[3][0];
-                p[j].x=txyz.value[0][0]+buffer.width/2;
-                p[j].y=txyz.value[1][0]+buffer.height/2;
+                p[j].x=txyz.value[0][0]+buffer.width/2.0;
+                p[j].y=txyz.value[1][0]+buffer.height/2.0;
                 p[j].z=txyz.value[2][0];
                 buffer.transformedTriSet[i].w[j]=txyz.value[3][0];
             }

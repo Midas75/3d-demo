@@ -2,11 +2,11 @@ package com.company;
 
 
 public class Triangle {
-    public com.company.Vertex[] vertex;
+    public final com.company.Vertex[] vertex;
     private Vector normalVector;
     public boolean vectorIsNew;
     public com.company.Texture texture;
-    public double material;
+    public final double material;
     public Triangle(Vector v0, Vector v1, Vector v2) {
         vertex = new Vertex[]{new Vertex(v0), new Vertex(v1), new Vertex(v2)};
         vectorIsNew = false;

@@ -24,13 +24,13 @@ public class Texture {
             e.printStackTrace();
         }
     }
-    public int getColor(int offsetx, int offsety){
-        if(offsetx<0||offsety<0) return 0;
-        offsetx%= width;
-        offsety%= height;
-        return rgbValue[offsetx][offsety];
+    public int getColor(int offsetX, int offsetY){
+        if(offsetX<0||offsetY<0) return 0;
+        offsetX%= width;
+        offsetY%= height;
+        return rgbValue[offsetX][offsetY];
     }
-    public int getColor(double offsetx, double offsety){
-        return getColor((int)offsetx,(int)offsety);
+    public int getColor(double offsetX, double offsetY){
+        return getColor((int)offsetX,(int)offsetY);
     }
 }

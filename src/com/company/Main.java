@@ -9,10 +9,10 @@ public class Main {
 
     public static void main(String[] args) {
         VisualWindow visualwindow = new VisualWindow();
-        Light[] lightset = new Light[3];
-        lightset[0] = new Light(0.4, 1, 1, 1, 0, 100, 100, Light.AMBIENT_LIGHT);
-        lightset[1] = new Light(6000.0, 1, 1, 1, 80, 80, 0, Light.DIFFUSE_LIGHT);
-        lightset[2] = new Light(12000.0, 1, 1, 1, 80, 80, 0, Light.HIGH_LIGHT);
+        Light[] lightSet = new Light[3];
+        lightSet[0] = new Light(0.4, 1, 1, 1, 0, 100, 100, Light.AMBIENT_LIGHT);
+        lightSet[1] = new Light(6000.0, 1, 1, 1, 80, 80, 0, Light.DIFFUSE_LIGHT);
+        lightSet[2] = new Light(12000.0, 1, 1, 1, 80, 80, 0, Light.HIGH_LIGHT);
 
         Geometry geometry = new Geometry(Geometry.Shape.CUBE);
 
@@ -87,16 +87,16 @@ public class Main {
                 }else if(e.getKeyChar()=='e'){
                     camera.goForward(-2);
                 }else if(e.getKeyChar()=='b'){
-                    lightset[1].position=new Vector(80,80,0);
-                    lightset[2].position=new Vector(80,80,0);
+                    lightSet[1].position=new Vector(80,80,0);
+                    lightSet[2].position=new Vector(80,80,0);
                 }else if(e.getKeyChar()=='v'){
-                    lightset[1].position=new Vector(0,80,80);
-                    lightset[2].position=new Vector(0,80,80);
+                    lightSet[1].position=new Vector(0,80,80);
+                    lightSet[2].position=new Vector(0,80,80);
                 }
                 for (int i = 0; i < geometry.triangleSet.length; i++) {
                     geometry.triangleSet[i].vectorIsNew = false;
                 }
-                Draw.drawAll(camera, geometry, lightset, visualwindow, true);
+                Draw.drawAll(camera, geometry, lightSet, visualwindow, true);
             }
 
             @Override
@@ -105,15 +105,10 @@ public class Main {
             }
         });
 
-        Draw.drawAll(camera, geometry, lightset, visualwindow, true);
+        Draw.drawAll(camera, geometry, lightSet, visualwindow, true);
 
         if (true)
             while (true) {
-//                try {
-//                    Thread.sleep(20);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
                 for (int i = 0; i < geometry.vectorSet.length; i++) {
                     Matrix.turnRound(geometry.vectorSet[i], new Vector(0, 0, 1), new Vector(0, 0, 0), 0.8);
                     Matrix.turnRound(geometry.vectorSet[i], new Vector(0, 1, 0), new Vector(0, 0, 0), 1.0);
@@ -121,7 +116,7 @@ public class Main {
                 for (int i = 0; i < geometry.triangleSet.length; i++) {
                     geometry.triangleSet[i].vectorIsNew = false;
                 }
-                Draw.drawAll(camera, geometry, lightset, visualwindow, true);
+                Draw.drawAll(camera, geometry, lightSet, visualwindow, true);
             }
     }
 }

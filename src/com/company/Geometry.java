@@ -4,7 +4,7 @@ public class Geometry {
     public Vector[] vectorSet;
     public Triangle[] triangleSet;
     public Line[] LineSet;
-    public static enum Shape{
+    public enum Shape{
         CUBE,CUBE_PURE
     }
     public Geometry(Shape shape) {

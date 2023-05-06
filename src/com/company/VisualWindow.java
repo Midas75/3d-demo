@@ -6,8 +6,9 @@ import java.awt.image.BufferedImage;
 import static java.lang.Math.round;
 
 public class VisualWindow extends JFrame {
-    int width, height;
-    com.company.Canvas canvas;
+    final int width;
+    final int height;
+    final com.company.Canvas canvas;
     BufferedImage buffer;
 
     public VisualWindow() {
