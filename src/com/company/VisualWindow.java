@@ -1,12 +1,8 @@
 package com.company;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 
-import static java.lang.Math.max;
 import static java.lang.Math.round;
 
 public class VisualWindow extends JFrame {
@@ -52,13 +48,13 @@ public class VisualWindow extends JFrame {
     }
 
     public static int getColor(int r, int g, int b) {
-        return  ((0 & 0xFF) << 24) |
+        return  ((0) << 24) |
                 ((r & 0xFF) << 16) |
                 ((g & 0xFF) << 8)  |
-                ((b & 0xFF) << 0);
+                ((b & 0xFF));
     }
 
     public static int getColor(double r, double g, double b) {
-        return getColor(round(r * 255), round(g * 255), round(b * 255));
+        return getColor((int)round(r * 255), (int)round(g * 255), (int)(b * 255));
     }
 }
