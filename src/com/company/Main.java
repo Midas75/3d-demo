@@ -68,30 +68,30 @@ public class Main {
                         Matrix.turnRound(geometry.vectorSet[i], new Vector(-1, 1, 0), new Vector(0, 0, 0), 1.2);
                     }
                 } else if (e.getKeyChar() == 't') {
-                    camera.obMode^=Camera.SHOW_TRIANGLE;
-                    camera.obMode^=Camera.SHOW_LINE;
-                }else if (e.getKeyChar() == 'r') {
-                    camera.obMode^=Camera.SHOW_TEXTURE;
-                }else if (e.getKeyChar() == 'l') {
-                    camera.obMode^=Camera.SHOW_LIGHT;
-                }else if(e.getKeyCode()==37){
+                    camera.obMode ^= Camera.SHOW_TRIANGLE;
+                    camera.obMode ^= Camera.SHOW_LINE;
+                } else if (e.getKeyChar() == 'r') {
+                    camera.obMode ^= Camera.SHOW_TEXTURE;
+                } else if (e.getKeyChar() == 'l') {
+                    camera.obMode ^= Camera.SHOW_LIGHT;
+                } else if (e.getKeyCode() == 37) {
                     camera.turnLeft(1);
-                }else if(e.getKeyCode()==38){
+                } else if (e.getKeyCode() == 38) {
                     camera.turnUp(1);
-                }else if(e.getKeyCode()==39){
+                } else if (e.getKeyCode() == 39) {
                     camera.turnLeft(-1);
-                }else if(e.getKeyCode()==40){
+                } else if (e.getKeyCode() == 40) {
                     camera.turnUp(-1);
-                }else if(e.getKeyChar()=='q'){
+                } else if (e.getKeyChar() == 'q') {
                     camera.goForward(2);
-                }else if(e.getKeyChar()=='e'){
+                } else if (e.getKeyChar() == 'e') {
                     camera.goForward(-2);
-                }else if(e.getKeyChar()=='b'){
-                    lightSet[1].position=new Vector(80,80,0);
-                    lightSet[2].position=new Vector(80,80,0);
-                }else if(e.getKeyChar()=='v'){
-                    lightSet[1].position=new Vector(0,80,80);
-                    lightSet[2].position=new Vector(0,80,80);
+                } else if (e.getKeyChar() == 'b') {
+                    lightSet[1].position = new Vector(80, 80, 0);
+                    lightSet[2].position = new Vector(80, 80, 0);
+                } else if (e.getKeyChar() == 'v') {
+                    lightSet[1].position = new Vector(0, 80, 80);
+                    lightSet[2].position = new Vector(0, 80, 80);
                 }
                 for (int i = 0; i < geometry.triangleSet.length; i++) {
                     geometry.triangleSet[i].vectorIsNew = false;
